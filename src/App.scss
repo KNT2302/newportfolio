@@ -1,0 +1,20 @@
+.App {
+  .circle-inner{
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    border-radius: 2.5px;
+    background-color: black;
+    transition: .1s;
+  }
+  .circle-outer{
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 2px solid gray;
+    transform: translate(-7.5px, -7.5px);
+    transition: .2s;
+  }
+}
