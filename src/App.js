@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
-import logo from './logo.svg'
+import { Route, Switch } from 'react-router-dom'
+import { About, Home } from './pages'
+import { AppHeader, Author, Footer } from './components'
 
 function App() {
 
@@ -14,12 +16,26 @@ function App() {
       circleOuter.style.top = e.pageY + "px"
       circleOuter.style.left = e.pageX + "px"
     })
+
   }, [])
   return (
     <div className="App">
-      <header className="App-header">
-
-      </header>
+      <AppHeader />
+      <hr />
+      <section className='content'>
+        <Author />
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </section>
+      <hr />
+      <Footer />
+      <div className='container'></div>
       <div className='circle-inner'></div>
       <div className='circle-outer'></div>
     </div>
