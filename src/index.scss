@@ -19,17 +19,23 @@ html{
 
 .button {
   width: 250px;
-  height: 60px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 30px;
+  border-radius: 25px;
   padding: 1.5em 0em;
   border: none;
   color: white;
   font-size: 1.4rem;
   background-color: pink;
   animation: changeColor 1s infinite linear;
+}
+
+@mixin responsive($canvas) {
+  @media (max-width: $canvas) {
+    @content
+  }
 }
 
 @import "./style/component.scss";

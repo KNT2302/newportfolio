@@ -1,11 +1,11 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 const Home = () => {
 
   useEffect(() => {
     const list = document.querySelector(".list")
     const text = document.querySelector(".lens-text")
-    const textList = ["Student", "GenZ", "Programing"]
+    const textList = ["Designer", "Student", "Programing"]
     let index = 0
     const timer = setInterval(() => {
       if (index === 3) {
@@ -19,7 +19,6 @@ const Home = () => {
       clearInterval(timer)
     }
   }, [])
-
   return (
     <main className="main-content home">
       <div>
@@ -27,16 +26,10 @@ const Home = () => {
       </div>
       <section className="creative-section">
         <h2>Creative</h2>
-
-        <ul className="creative-section__list">
-          <li className="creative-section__list-item">Designer</li>
-          <li className="creative-section__list-item">Freelancer</li>
-          <li className="creative-section__list-item">Developer</li>
-        </ul>
         <div className="list-container">
-          <p className="list">GenZ</p>
+          <p className="list">Designer</p>
           <div className="list-lens">
-            <p className="lens-text">GenZ</p>
+            <p className="lens-text">Designer</p>
           </div>
         </div>
       </section>
