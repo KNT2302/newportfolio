@@ -4,6 +4,18 @@
   align-items: center;
   height: 100vh;
   overflow: hidden;
+  .over-lay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    opacity: .3;
+    z-index: -1;
+    display: flex;
+    flex-wrap: wrap;
+  }
   .circle-inner {
     position: fixed;
     width: 5px;
@@ -12,7 +24,7 @@
     background-color: black;
     transition: 0.1s;
     pointer-events: none;
-    background-color: white;
+    background-color: pink;
     z-index: 1;
   }
   .circle-outer {
@@ -21,12 +33,15 @@
     height: 20px;
     border-radius: 10px;
     background-color: transparent;
-    border: 2px solid white;
-    transform: translate(-7.5px, -7.5px);
+    border: 2px solid pink;
+    border-bottom-color: yellow;
+    border-top-color: red;
+    border-right-color: green;
     transition: 0.2s;
     pointer-events: none;
     z-index: 1;
-    box-shadow: 0 0 10px white, 0 0 15px white ;
+    animation: changeColor 2s ease-in-out infinite,
+    circle 2s linear infinite;
   }
   .app-header {
     position: fixed;
@@ -42,9 +57,6 @@
       justify-content: space-between;
       align-items: center;
       width: 90%;
-      @include responsive(555px) {
-        width: 100%;
-      }
       .heading{
         position: relative;
         &::after{
@@ -59,7 +71,8 @@
           animation: changeColor 2s ease-in-out alternate infinite;
           transform: scale(0.2);
           box-shadow: 0 0 10px pink,  0 0 50px pink,
-          0 0 60px pink
+          0 0 60px pink;
+          animation: light 5s infinite linear;
         }
         &::before{
           position: absolute;
@@ -74,7 +87,8 @@
           animation: changeColor 2s ease-in-out alternate infinite;
           transform: scale(0.2);
           box-shadow: 0 0 10px pink,  0 0 50px pink,
-          0 0 60px pink
+          0 0 60px pink;
+          animation: light 5s infinite linear;
         }
       }
       .app-nav {
@@ -87,10 +101,35 @@
         }
         &-list {
           list-style: none;
+          &-item.active::before{
+            width: 100%;
+          }
           &-item {
             display: inline-block;
             padding: 0 30px;
             text-align: center;
+            position: relative;
+            &:hover::before{
+              width: 100%;
+            } 
+            &::before{
+              content: "";
+              position: absolute;
+              top:0;
+              left: 0;
+              height: 100%;
+              width: 0%;
+              z-index: -1;
+              transition: 0.15s;
+              background-color: pink;
+              animation: changeColor 2s infinite linear;
+            }
+            &:nth-child(2)::before{
+              animation-delay: .5s;
+            }
+            &:nth-child(3)::before{
+              animation-delay: 1s;
+            }
             .app-nav__link {
               text-decoration: none;
               color: white;
@@ -108,9 +147,6 @@
     font-size: 1.4rem;
     display: flex;
     height: calc(100vh - var(--height-nav) - 50px);
-    @include responsive(555px) {
-      width: 100%;
-    }
     .author-container {
       flex: 1;
       height: 100%;
@@ -141,7 +177,7 @@
         align-items: center;
       }
       &__heading {
-        font-size: 3.5rem;
+        font-size: 3rem;
         height: 100px;
         display: inline-block;
         display: inline-flex;
@@ -166,7 +202,10 @@
         display: flex;
         align-items: center;
         &__heading {
-          font-size: 2.2rem;
+          font-size: 2rem;
+          @include responsive(888px) {
+            font-size: 1.5rem;
+          }
         }
         .list-container {
           margin-left: 15px;
@@ -196,9 +235,10 @@
         margin-top: 50px;
       }
     }
-    .about-page {
+    .page {
       display: flex;
       flex-direction: column;
+      animation: page .5s ease-in-out forwards;
       .introduce {
         &__heading {
           display: flex;
@@ -209,7 +249,7 @@
           }
           &::after {
             content: "";
-            width: 80%;
+            width: 75%;
             height: 2px;
             background-color: white;
             @include responsive(888px) {
@@ -219,6 +259,22 @@
         }
         &__content {
           padding-top: 2em;
+        }
+        .info-block{
+          display: flex;
+          margin-bottom: 20px;
+          align-items: center;
+          &:nth-child(odd){
+            flex-direction: row-reverse;
+            justify-content: left;
+          }
+          &:nth-child(even){
+            .block-img{margin-left: 0;}
+          }
+          .block-img{
+            width: 35px;
+            margin: 0 15px;
+          }
         }
       }
     }
@@ -239,9 +295,6 @@
       width: 90%;
       display: flex;
       justify-content: space-between;
-      @include responsive(555px) {
-        width: 100%;
-      }
       .footer-copywrite {
         display: flex;
         align-items: center;
@@ -340,7 +393,7 @@
           margin-top: 1em;
           .app-sidenav__link {
             text-decoration: none;
-            color: white;
+            color: black;
             font-size: 1.3rem;
           }
         }

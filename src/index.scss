@@ -1,3 +1,9 @@
+@mixin responsive($canvas) {
+  @media (max-width: $canvas) {
+    @content
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -26,21 +32,14 @@ html{
   border-radius: 25px;
   padding: 1.5em 0em;
   border: none;
-  color: white;
+  color: black;
+  font-weight: 1000;
   font-size: 1.4rem;
   background-color: pink;
   animation: changeColor 1s infinite linear;
-}
-
-@mixin responsive($canvas) {
-  @media (max-width: $canvas) {
-    @content
-  }
-}
-
-@mixin responsive($canvas) {
-  @media (max-width: $canvas) {
-    @content
+  @include responsive(888px) {
+    font-size: 1.2rem;
+    width: 200px
   }
 }
 
