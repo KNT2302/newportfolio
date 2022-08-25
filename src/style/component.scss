@@ -22,7 +22,7 @@
     transition: 0.2s;
     pointer-events: none;
   }
-  .app-header{
+  .app-header {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -31,24 +31,31 @@
     width: 100%;
     height: var(--height-nav);
     padding-top: 10px;
-    &__container{
+    &__container {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 90%;
-      .app-nav{
+      @include responsive(555px) {
+        width: 100%;
+      }
+      .app-nav {
         display: flex;
         align-items: center;
         height: 40px;
         position: relative;
-        &-list{
+        @include responsive(888px) {
+          display: none;
+        }
+        &-list {
           list-style: none;
-          &-item{
+          &-item {
             display: inline-block;
             width: 100px;
             text-align: center;
-            .app-nav__link{
+            .app-nav__link {
               text-decoration: none;
+              color: black;
               font-size: 1.6rem;
             }
           }
@@ -62,25 +69,40 @@
     width: 90%;
     font-size: 1.4rem;
     display: flex;
-    .author-container{
-      width: 700px;
-      height: calc(100vh - var(--height-nav) - 50px);
+    height: calc(100vh - var(--height-nav) - 50px);
+    @include responsive(555px) {
+      width: 100%;
+    }
+    .author-container {
+      flex: 1;
+      height: 100%;
+      @include responsive(600px) {
+        display: none;
+      }
     }
     .main-content {
       flex: 1;
+      justify-content: center;
+      height: 100%;
     }
-    .home{
+    .home {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      &__heading{
+      @include responsive(600px) {
+        align-items: center;
+      }
+      &__heading {
         font-size: 3.5rem;
         height: 100px;
-         display: inline-block;
-         padding-bottom: 5%;
-         margin-bottom: 5%;
-         position: relative;
-         &::after{
+        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 5%;
+        position: relative;
+        @include responsive(888px) {
+          font-size: 2.5rem;
+        }
+        &::after {
           content: "";
           position: absolute;
           top: 100%;
@@ -89,29 +111,66 @@
           height: 5px;
           border-radius: 2.5px;
           background-color: black;
-         }
+        }
       }
-      .creative-section{
+      .creative-section {
         display: flex;
         align-items: center;
-        &__heading{
-          font-size: 1.6rem;
+        &__heading {
+          font-size: 2.2rem;
         }
-        &__list{
-          &-item{
-            width: 110px;
-            text-align: center;
-            display: inline-block;
+        .list-container {
+          margin-left: 15px;
+          display: inline-block;
+          position: relative;
+          font-size: 2rem;
+          width: 150px;
+          display: flex;
+          align-items: center;
+          .list-lens{
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: black;
+            animation: animationList 2s ease-in-out alternate infinite;
+            .lens-text{
+              color: white;
+              animation: animationlens  2s ease-in-out alternate infinite;
+            }
           }
         }
       }
-      &-btn{
+      &-btn {
         margin-top: 50px;
+      }
+    }
+    .about-page {
+      display: flex;
+      flex-direction: column;
+      .introduce {
+        &__heading {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 1.5rem;
+          &::after {
+            content: "";
+            width: 80%;
+            height: 2px;
+            background-color: gray;
+          }
+        }
+        &__content {
+          padding-top: 2em;
+        }
       }
     }
   }
 
-  .footer-app{
+  .footer-app {
     position: fixed;
     width: 100%;
     height: 50px;
@@ -120,29 +179,105 @@
     bottom: 0;
     left: 0;
     padding-bottom: 10px;
-    .footer__container{
+    .footer__container {
       margin: 0 auto;
       width: 90%;
       display: flex;
       justify-content: space-between;
-      .footer-copywrite{
+      @include responsive(555px) {
+        width: 100%;
+      }
+      .footer-copywrite {
         display: flex;
         align-items: center;
       }
-      .footer__nav{
-        &__list{
+      .footer__nav {
+        &__list {
           display: flex;
           align-items: center;
-          &-item{
+          &-item {
             display: inline-block;
-            .nav-footer__link{
+            .nav-footer__link {
               display: flex;
               align-items: center;
-              padding: 0em .5em;
-              &-img{
+              padding: 0em 0.5em;
+              &-img {
                 width: 20px;
               }
             }
+          }
+        }
+      }
+    }
+  }
+  .responsive-nav.active {
+    transform: translateX(0%);
+  }
+  .responsive-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    transform: translateX(100%);
+    display: none;
+    @include responsive(888px) {
+      display: block;
+    }
+    .toggle-menu {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: 30px;
+      left: -10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover{
+        cursor: pointer;
+      }
+      &::after {
+        content: "";
+        width: 10px;
+        height: 2px;
+        background-color: black;
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        transform: translateY(0);
+      }
+      &::before {
+        content: "";
+        width: 10px;
+        height: 2px;
+        background-color: black;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        transform: translateY(0);
+        box-shadow: 0px 4px 0 black;
+      }
+    }
+    .image {
+      width: 100%;
+      height: 250px;
+      margin-left: 20px;
+    }
+    .app-sidenav {
+      &-list {
+        &-item {
+          display: block;
+          text-align: right;
+          margin-top: 1em;
+          .app-sidenav__link {
+            text-decoration: none;
+            color: black;
+            font-size: 1.3rem;
           }
         }
       }
