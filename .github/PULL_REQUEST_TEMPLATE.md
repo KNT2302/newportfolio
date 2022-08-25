@@ -1,8 +1,8 @@
-## Description
+### Description
 
 Please include a summary of the change and which issue is fixed.
 
-## Type of change
+### Type of change
 
 Please delete options that are not relevant.
 
@@ -11,5 +11,5 @@ Please delete options that are not relevant.
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
 
-## Tickets url
+### Tickets url
 
