@@ -6,3 +6,21 @@
     filter: hue-rotate(360deg);
   }
 }
+
+@keyframes animationList {
+  0%{
+    transform: translateX(0px);
+  }
+  100%{
+    transform: translateX(calc(150px - 35px));
+  }
+}
+
+@keyframes animationlens {
+  0%{
+    transform: translateX(0px);
+  }
+  100%{
+    transform: translateX(calc(-150px + 35px));
+  }
+}
