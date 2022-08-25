@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { About, Home } from './pages'
-import { AppHeader, Author, Footer } from './components'
+import { AppHeader, AsideNav, Author, Footer } from './components'
 
 function App() {
 
@@ -16,8 +16,8 @@ function App() {
       circleOuter.style.top = e.pageY + "px"
       circleOuter.style.left = e.pageX + "px"
     })
-
   }, [])
+
   return (
     <div className="App">
       <AppHeader />
@@ -38,6 +38,7 @@ function App() {
       <div className='container'></div>
       <div className='circle-inner'></div>
       <div className='circle-outer'></div>
+      <AsideNav />
     </div>
   )
 }
