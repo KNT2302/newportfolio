@@ -5,7 +5,7 @@ const Home = () => {
   useEffect(() => {
     const list = document.querySelector(".list")
     const text = document.querySelector(".lens-text")
-    const textList = ["Designer", "Student", "Programing"]
+    const textList = ["CSS", "Javascript", "ReactJs", "Html"]
     let index = 0
     const timer = setInterval(() => {
       if (index === 3) {
@@ -25,11 +25,11 @@ const Home = () => {
         <h1 className="home__heading">Khoi Nguyen</h1>
       </div>
       <section className="creative-section">
-        <h2>Creative</h2>
+        <h2>Technical Skills</h2>
         <div className="list-container">
-          <p className="list">Designer</p>
+          <p className="list">Html</p>
           <div className="list-lens">
-            <p className="lens-text">Designer</p>
+            <p className="lens-text">Html</p>
           </div>
         </div>
       </section>
