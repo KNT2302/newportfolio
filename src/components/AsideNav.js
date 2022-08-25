@@ -1,9 +1,7 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom"
 import authorImg from "../assets/music.jpg"
-
 const AsideNav = () => {
-
   const responsiveNav = useRef(null)
   const handleToggle = () => {
     responsiveNav.current.classList.toggle("active")

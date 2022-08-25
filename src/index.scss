@@ -38,5 +38,11 @@ html{
   }
 }
 
+@mixin responsive($canvas) {
+  @media (max-width: $canvas) {
+    @content
+  }
+}
+
 @import "./style/component.scss";
 @import "./style/animation.scss";
