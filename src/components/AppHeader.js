@@ -5,7 +5,7 @@ const AppHeader = () => {
   return (
     <header className="app-header">
       <div className="app-header__container">
-        <h1>KAYSTIM</h1>
+        <h1 className="heading">KAYSTIM</h1>
         <nav className="app-nav">
           <ul className="app-nav-list">
             <li className="app-nav-list-item">

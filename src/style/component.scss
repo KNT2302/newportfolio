@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+  overflow: hidden;
   .circle-inner {
     position: fixed;
     width: 5px;
@@ -10,6 +12,8 @@
     background-color: black;
     transition: 0.1s;
     pointer-events: none;
+    background-color: white;
+    z-index: 1;
   }
   .circle-outer {
     position: fixed;
@@ -17,10 +21,12 @@
     height: 20px;
     border-radius: 10px;
     background-color: transparent;
-    border: 2px solid gray;
+    border: 2px solid white;
     transform: translate(-7.5px, -7.5px);
     transition: 0.2s;
     pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 10px white, 0 0 15px white ;
   }
   .app-header {
     position: fixed;
@@ -39,6 +45,38 @@
       @include responsive(555px) {
         width: 100%;
       }
+      .heading{
+        position: relative;
+        &::after{
+          position: absolute;
+          top:0;
+          left: 0;
+          content: "";
+          width: 50px;
+          height: 50px;
+          border-radius: 25px;
+          background-color: pink;
+          animation: changeColor 2s ease-in-out alternate infinite;
+          transform: scale(0.2);
+          box-shadow: 0 0 10px pink,  0 0 50px pink,
+          0 0 60px pink
+        }
+        &::before{
+          position: absolute;
+          top:-8px;
+          left: -8px;
+          content: "";
+          width: 60px;
+          height: 60px;
+          border-radius: 30px;
+          background-color: transparent;
+          border: 3px solid pink;
+          animation: changeColor 2s ease-in-out alternate infinite;
+          transform: scale(0.2);
+          box-shadow: 0 0 10px pink,  0 0 50px pink,
+          0 0 60px pink
+        }
+      }
       .app-nav {
         display: flex;
         align-items: center;
@@ -51,11 +89,11 @@
           list-style: none;
           &-item {
             display: inline-block;
-            width: 100px;
+            padding: 0 30px;
             text-align: center;
             .app-nav__link {
               text-decoration: none;
-              color: black;
+              color: white;
               font-size: 1.6rem;
             }
           }
@@ -76,8 +114,19 @@
     .author-container {
       flex: 1;
       height: 100%;
+      animation: changeColor 2s ease-in-out alternate infinite;
       @include responsive(600px) {
         display: none;
+      }
+      .author-img-box{
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        img{
+          width: 90%;
+          height: 90%;
+        }
       }
     }
     .main-content {
@@ -110,7 +159,7 @@
           width: 30%;
           height: 5px;
           border-radius: 2.5px;
-          background-color: black;
+          background-color: white;
         }
       }
       .creative-section {
@@ -134,10 +183,10 @@
             width: 35px;
             border-radius: 50%;
             overflow: hidden;
-            background-color: black;
+            background-color: white;
             animation: animationList 2s ease-in-out alternate infinite;
             .lens-text{
-              color: white;
+              color: black;
               animation: animationlens  2s ease-in-out alternate infinite;
             }
           }
@@ -156,11 +205,16 @@
           justify-content: space-between;
           align-items: center;
           font-size: 1.5rem;
+          @include responsive(888px) {
+          }
           &::after {
             content: "";
             width: 80%;
             height: 2px;
-            background-color: gray;
+            background-color: white;
+            @include responsive(888px) {
+              width: 65%;
+            }
           }
         }
         &__content {
@@ -179,6 +233,7 @@
     bottom: 0;
     left: 0;
     padding-bottom: 10px;
+    z-index: 1;
     .footer__container {
       margin: 0 auto;
       width: 90%;
@@ -190,6 +245,7 @@
       .footer-copywrite {
         display: flex;
         align-items: center;
+        font-size: 1.2rem;
       }
       .footer__nav {
         &__list {
@@ -219,15 +275,14 @@
     right: 0;
     width: 50%;
     height: 100vh;
-    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     background-color: lightblue;
     transform: translateX(100%);
     display: none;
+    transition: 0.15s;
     @include responsive(888px) {
-      display: block;
+      display: flex;
     }
     .toggle-menu {
       position: absolute;
@@ -267,16 +322,25 @@
       width: 100%;
       height: 250px;
       margin-left: 20px;
+
+      background-color: pink;
+      animation: changeColor 2s ease-in-out alternate infinite;
+      .author-img{
+        width: 100%;
+        height: 100%;
+      }
     }
     .app-sidenav {
       &-list {
         &-item {
           display: block;
           text-align: right;
+
+          margin-right: 10px;
           margin-top: 1em;
           .app-sidenav__link {
             text-decoration: none;
-            color: black;
+            color: white;
             font-size: 1.3rem;
           }
         }
