@@ -25,7 +25,7 @@ const Home = () => {
         <h1 className="home__heading">Khoi Nguyen</h1>
       </div>
       <section className="creative-section">
-        <h2>Technical Skills</h2>
+        <h2 className="creative-section__heading">Technical Skills</h2>
         <div className="list-container">
           <p className="list">Html</p>
           <div className="list-lens">

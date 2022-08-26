@@ -24,3 +24,42 @@
     transform: translateX(calc(-150px + 35px));
   }
 }
+
+@keyframes light {
+  0%, 25%, 50%, 75%{
+    transform: scale(0);
+  }
+  80%{
+    transform: scale(0.5);
+  }
+  85%{
+    transform: scale(0.2);
+  }
+  90%{
+    transform: scale(0.3);
+  }
+  95%{
+    transform: scale(0.2);
+  }
+  100%{
+    transform: scale(0);
+  }
+}
+
+@keyframes circle {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes page {
+  0%{
+    transform: translateY(15px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
