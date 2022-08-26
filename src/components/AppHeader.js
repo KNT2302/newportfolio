@@ -15,7 +15,7 @@ const AppHeader = () => {
     },
     {
       label: "Portfolio",
-      to: "",
+      to: "/autoboom",
     },
     {
       label: "Contact",

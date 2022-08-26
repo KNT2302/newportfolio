@@ -16,33 +16,6 @@
     display: flex;
     flex-wrap: wrap;
   }
-  .circle-inner {
-    position: fixed;
-    width: 5px;
-    height: 5px;
-    border-radius: 2.5px;
-    background-color: black;
-    transition: 0.1s;
-    pointer-events: none;
-    background-color: pink;
-    z-index: 1;
-  }
-  .circle-outer {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    background-color: transparent;
-    border: 2px solid pink;
-    border-bottom-color: yellow;
-    border-top-color: red;
-    border-right-color: green;
-    transition: 0.2s;
-    pointer-events: none;
-    z-index: 1;
-    animation: changeColor 2s ease-in-out infinite,
-    circle 2s linear infinite;
-  }
   .app-header {
     position: fixed;
     display: flex;
@@ -219,7 +192,7 @@
             position: absolute;
             left: 0;
             height: 100%;
-            width: 35px;
+            width: 50px;
             border-radius: 50%;
             overflow: hidden;
             background-color: white;
@@ -233,6 +206,20 @@
       }
       &-btn {
         margin-top: 50px;
+      }
+    }
+    .boom-page{
+      .board-boom{
+        display: flex;
+        flex-direction: column;
+        .row{
+          display: flex;
+          .col{
+            text-align: center;
+            flex: 1;
+            margin-right: 20px;
+          }
+        }
       }
     }
     .page {
