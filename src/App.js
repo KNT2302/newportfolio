@@ -16,8 +16,8 @@ function App() {
       circleInner.style.top = y + "px"
       circleInner.style.left = x + "px"
 
-      circleOuter.style.top =  y - 7.5 + "px"
-      circleOuter.style.left =  x -7.5 + "px"
+      circleOuter.style.top = y - 7.5 + "px"
+      circleOuter.style.left = x - 7.5 + "px"
     })
   }, [])
 

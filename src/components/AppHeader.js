@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
 
 const AppHeader = () => {
 
   const [activeLink, setActiveLink] = useState(0)
   const links = [
     {
-      display: "Home",
+      label: "Home",
       to: "/",
     },
     {
-      display: "About",
+      label: "About",
       to: "/about",
     },
     {
-      display: "Portfolio",
+      label: "Portfolio",
       to: "",
     },
     {
-      display: "Contact",
+      label: "Contact",
       to: "/contact",
     },
-  ];
+  ]
 
   const handleClick = (index) => {
     setActiveLink(index)
@@ -33,9 +33,9 @@ const AppHeader = () => {
         <nav className="app-nav">
           <ul className="app-nav-list">
             {links.map((link, index) => (
-              <li onClick={() => handleClick(index)} className={`app-nav-list-item ${activeLink===index?"active": null}`}>
+              <li key={index} onClick={() => handleClick(index)} className={`app-nav-list-item ${activeLink === index ? "active" : null}`}>
                 <Link className="app-nav__link" to={link.to}>
-                  {link.display}
+                  {link.label}
                 </Link>
               </li>
             ))}
@@ -43,7 +43,7 @@ const AppHeader = () => {
         </nav>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default AppHeader;
+export default AppHeader
