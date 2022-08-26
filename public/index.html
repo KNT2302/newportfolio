@@ -25,10 +25,42 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <style>
+      .circle-inner {
+        position: fixed;
+        width: 5px;
+        height: 5px;
+        border-radius: 2.5px;
+        background-color: black;
+        transition: 0.1s;
+        pointer-events: none;
+        background-color: pink;
+        z-index: 1;
+      }
+
+      .circle-outer {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        background-color: transparent;
+        border: 2px solid pink;
+        border-bottom-color: yellow;
+        border-top-color: red;
+        border-right-color: green;
+        transition: 0.2s;
+        pointer-events: none;
+        z-index: 1;
+        animation: changeColor 2s ease-in-out infinite,
+          circle 2s linear infinite;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <div class="circle-inner"></div>
+    <div class="circle-outer"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -40,4 +72,19 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+
+  <script>
+    const circleInner = document.querySelector(".circle-inner")
+    const circleOuter = document.querySelector(".circle-outer")
+
+    document.addEventListener("mousemove", (e) => {
+      const y = e.pageY
+      const x = e.pageX
+      circleInner.style.top = y + "px"
+      circleInner.style.left = x + "px"
+
+      circleOuter.style.top = y - 7.5 + "px"
+      circleOuter.style.left = x - 7.5 + "px"
+    })
+  </script>
 </html>
