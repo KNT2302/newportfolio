@@ -1,12 +1,10 @@
 import React from 'react'
-import author from "../assets/music.jpg"
+import author from "../assets/author.jpg"
 
 const Author = () => {
   return (
     <section className='author-container'>
-      <div className='author-img-box'>
-        <img src={author} />
-      </div>
+      <img className='author-img' src={author} alt="" />
     </section>
   )
 }

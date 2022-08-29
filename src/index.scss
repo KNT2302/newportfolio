@@ -13,35 +13,38 @@
 }
 
 :root {
-  --height-nav: 50px;
+  --height-nav: 60px;
   --height-footer: 50px;
 }
 
 html{
-  color: white;
-  font-weight: 1000;
-  background-color: lightblue;
-  animation: changeColor 10s infinite linear;
+  color: black;
+  font-weight: 500;
+  font-size: 62.5%;
+  // animation: changeColor 10s infinite linear;
 }
 
 .button {
-  width: 250px;
-  height: 50px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 25px;
-  padding: 1.5em 0em;
   border: none;
-  color: black;
-  font-weight: 1000;
-  font-size: 1.4rem;
-  background-color: pink;
-  animation: changeColor 1s infinite linear;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.6rem;
+  padding: 2.6rem 3rem;
+  background-color: #333;
+  transition: 0.15s;
+  border: 2px solid #333;
+  &:hover{
+    background-color: #fff;
+    color: #333;
+  }
+  // animation: changeColor 1s infinite linear;
   @include responsive(888px) {
-    font-size: 1.2rem;
-    width: 200px
+    font-size: 3rem;
   }
 }
+
 @import "./style/component.scss";
 @import "./style/animation.scss";
