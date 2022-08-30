@@ -1,14 +1,13 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom"
-import authorImg from "../assets/music.jpg"
-const AsideNav = () => {
-  const responsiveNav = useRef(null)
-  const handleToggle = () => {
-    responsiveNav.current.classList.toggle("active")
-  }
+import authorImg from "../assets/author.jpg"
+import tiktokIcon from "../assets/tiktok.com.png"
+import facebookIcon from "../assets/facebook.com.png"
+import instagramIcon from "../assets/instagram.com.png"
+const AsideNav = ({ responsiveNav }) => {
+
   return (
     <aside className="responsive-nav" ref={responsiveNav}>
-      <div className="toggle-menu" onClick={handleToggle}></div>
       <div className="image">
         <img className="author-img" src={authorImg} alt="" />
       </div>
@@ -36,6 +35,28 @@ const AsideNav = () => {
           </li>
         </ul>
       </nav>
+      <footer className="sidenav-footer">
+        <nav className="sidenav-footer__nav">
+          <ul className="sidenav-footer__nav__list">
+            <li className="sidenav-footer__nav__item">
+              <a href="tiktok" className="sidenav-footer__nav__item-link">
+                <img className="sidenav-footer__nav__item-link-img" src={tiktokIcon} alt="" />
+              </a>
+            </li>
+            <li className="sidenav-footer__nav__item">
+              <a href="tiktok" className="sidenav-footer__nav__item-link">
+                <img className="sidenav-footer__nav__item-link-img" src={facebookIcon} alt="" />
+              </a>
+            </li>
+            <li className="sidenav-footer__nav__item">
+              <a href="tiktok" className="sidenav-footer__nav__item-link">
+                <img className="sidenav-footer__nav__item-link-img" src={instagramIcon} alt="" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <p className="sidenav-footer__copywriter">Copywrite 2022</p>
+      </footer>
     </aside>
   )
 }

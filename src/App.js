@@ -2,11 +2,13 @@ import { Route, Switch } from 'react-router-dom'
 import { About, Home, News, Portfolio } from './pages'
 import { AppHeader, AsideNav, Author, Footer } from './components'
 import Contact from './pages/Contact'
+import { useRef } from 'react'
 
 function App() {
+  const responsiveNav = useRef(null)
   return (
     <div className="App">
-      <AppHeader />
+      <AppHeader responsiveNav={responsiveNav} />
       <hr />
       <section className='content'>
         <Author />
@@ -32,7 +34,7 @@ function App() {
       <Footer />
       <div className='container'></div>
       {/* <div className='over-lay'></div> */}
-      <AsideNav />
+      <AsideNav responsiveNav={responsiveNav} />
     </div>
   )
 }

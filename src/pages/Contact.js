@@ -8,7 +8,7 @@ const Contact = () => {
     <main className="main-content page">
       <article className="introduce">
         <h2 className="introduce__heading">CONTACT</h2>
-        <section className="introduce__content">
+        <section className="introduce__content contacts">
           <div className="info-block">
             <img className="block-img" src={addressIcon} />
             <p className="block-detail">4/464/55C, Ap Bac St, Tien Giang</p>
