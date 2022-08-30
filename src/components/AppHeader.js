@@ -15,7 +15,11 @@ const AppHeader = () => {
     },
     {
       label: "Portfolio",
-      to: "/autoboom",
+      to: "/portfolio",
+    },
+    {
+      label: "News",
+      to: "/news",
     },
     {
       label: "Contact",
@@ -29,7 +33,7 @@ const AppHeader = () => {
   return (
     <header className="app-header">
       <div className="app-header__container">
-        <h1 className="heading">KAYSTIM</h1>
+        <h1 className="heading">CAVANI</h1>
         <nav className="app-nav">
           <ul className="app-nav-list">
             {links.map((link, index) => (

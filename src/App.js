@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { About, AutoBoom, Home } from './pages'
+import { About, Home, News, Portfolio } from './pages'
 import { AppHeader, AsideNav, Author, Footer } from './components'
 import Contact from './pages/Contact'
 
@@ -18,8 +17,11 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          <Route path="/autoboom">
-            <AutoBoom />
+          <Route path="/portfolio">
+            <Portfolio />
+          </Route>
+          <Route path="/news">
+            <News />
           </Route>
           <Route exact path="/">
             <Home />
@@ -29,7 +31,7 @@ function App() {
       <hr />
       <Footer />
       <div className='container'></div>
-      <div className='over-lay'></div>
+      {/* <div className='over-lay'></div> */}
       <AsideNav />
     </div>
   )

@@ -1,20 +1,17 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 const Home = () => {
 
+  const [visibleIdx, setVisibleIdx] = useState(0)
+
+  console.log(visibleIdx)
+  const skills = useRef(["HTML", "CSS", "JavaScript", "ReactJs"])
+
   useEffect(() => {
-    const list = document.querySelector(".list")
-    const text = document.querySelector(".lens-text")
-    const textList = ["CSS", "Javascript", "ReactJs", "Html"]
-    let index = 0
     const timer = setInterval(() => {
-      if (index === 3) {
-        index = 0
-      }
-      list.innerHTML = textList[index]
-      text.innerHTML = textList[index]
-      index++
-    }, 4000)
+      setVisibleIdx(prev => (prev + 1) % 4)
+    }, 3000)
+
     return () => {
       clearInterval(timer)
     }
@@ -22,16 +19,15 @@ const Home = () => {
   return (
     <main className="main-content home">
       <div>
-        <h1 className="home__heading">Khoi Nguyen</h1>
+        <h1 className="home__heading">ALAN WALKER</h1>
       </div>
       <section className="creative-section">
         <h2 className="creative-section__heading">Technical Skills</h2>
-        <div className="list-container">
-          <p className="list">Html</p>
-          <div className="list-lens">
-            <p className="lens-text">Html</p>
-          </div>
-        </div>
+        <ul className="list-container">
+          {skills.current.map((skill, index) => (
+            <li className={`list-container-item ${visibleIdx === index ? "visible" : ""}`}>{skill}</li>
+          ))}
+        </ul>
       </section>
       <div>
         <button className="button home-btn">Get in Touch</button>

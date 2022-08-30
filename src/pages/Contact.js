@@ -1,15 +1,13 @@
-import React from 'react'
+import React from "react"
 import addressIcon from "../assets/address.com.png"
 import gmailIcon from "../assets/gmail.com.png"
 import phoneIcon from "../assets/phone.com.png"
 
 const Contact = () => {
   return (
-    <main className='main-content page'>
+    <main className="main-content page">
       <article className="introduce">
-        <h2 className="introduce__heading">
-          CONTACT
-        </h2>
+        <h2 className="introduce__heading">CONTACT</h2>
         <section className="introduce__content">
           <div className="info-block">
             <img className="block-img" src={addressIcon} />
@@ -25,6 +23,24 @@ const Contact = () => {
           </div>
         </section>
       </article>
+      <form className="form-contact">
+        <label className="form-label">
+          Name
+          <input className="form-input" type="text" />
+        </label>
+
+        <label className="form-label">
+          Email
+          <input className="form-input" type="text" />
+        </label>
+
+        <label className="form-label">
+          Message
+          <textarea />
+        </label>
+
+        <button className="button send-btn">Send message</button>
+      </form>
     </main>
   )
 }

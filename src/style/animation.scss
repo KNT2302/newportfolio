@@ -1,11 +1,11 @@
-@keyframes changeColor {
-  0%{
-    filter: hue-rotate(0deg);
-  }
-  100%{
-    filter: hue-rotate(360deg);
-  }
-}
+// @keyframes changeColor {
+//   0%{
+//     filter: hue-rotate(0deg);
+//   }
+//   100%{
+//     filter: hue-rotate(360deg);
+//   }
+// }
 
 @keyframes animationList {
   0%{
@@ -61,5 +61,30 @@
   }
   100%{
     transform: translateY(0px);
+  }
+}
+
+@keyframes itemJob {
+  0%{
+    transform: rotateX(180deg);
+    opacity: 0;
+  }
+  20%{
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  50%{
+    transform: rotateX(0deg);
+  }
+  70%{
+    transform: rotateX(-40deg);
+    opacity: 1;
+  }
+  90%{
+    opacity: 0;
+  }
+  100%{
+    transform: rotateX(180deg);
+    opacity: 0;
   }
 }
